@@ -5,18 +5,18 @@ Voluntarily-developed WordPress theme for the Reel Awareness Human Rights Film F
 ## Pages
 
 Pages on the website and the templates used for them:
-* About - Template: Page with Main Image
-* Festival - Template: Festival page
-  * Festival Information - Template: Page with Main Image
-  * Past Festival Films - Template: Past Festival Films page
-* Year-long Series - Template: Series page
-  * Past Series Films page - Template: Past Series Films page
- * Films Submissions - Template: Default (page.php)
+* About - Template: <a href="https://github.com/transteph/reelawareness-wp-theme/blob/master/page-with-main-img.php" target="_blank">Page with Main Image</a>
+* Festival - Template: <a href="https://github.com/transteph/reelawareness-wp-theme/blob/master/festival-page.php" target="_blank">Festival page</a>
+* Festival Information - Template: <a href="https://github.com/transteph/reelawareness-wp-theme/blob/master/page-with-main-img.php" target="_blank">Page with Main Image</a>
+* Past Festival Films - Template: <a href="https://github.com/transteph/reelawareness-wp-theme/blob/master/past-festival.php" target="_blank">Past Festival Films page</a>
+* Year-long Series - Template: <a href="https://github.com/transteph/reelawareness-wp-theme/blob/master/series-page.php" target="_blank">Series page</a>
+* Past Series Films page - Template: <a href="https://github.com/transteph/reelawareness-wp-theme/blob/master/past-series.php" target="_blank">Past Series Films page</a>
+* Films Submissions - Template: <a href="https://github.com/transteph/reelawareness-wp-theme/blob/master/page.php" target="_blank">Default</a>
 
 ## Plugins
 * <a href="https://www.google.ca/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiso8qcpuvVAhWELFAKHUxmDioQFggoMAA&url=https%3A%2F%2Fwww.advancedcustomfields.com%2F&usg=AFQjCNEaPLI0kA49z3gAlxsLlEGrDi4MKQ" target="_blank">Advanced Custom Fields</a>
 * <a href="https://www.advancedcustomfields.com/resources/date-time-picker/" target="_blank">Advanced Custom Fields: Date and Time Picker</a>
-* <a href="https://en-ca.wordpress.org/plugins/duplicate-post/" target="_blank">Duplicate Post</a> to make it easier for editors to create new film posts.
+* <a href="https://en-ca.wordpress.org/plugins/duplicate-post/" target="_blank">Duplicate Post</a>(to make it easier for editors to create new film posts)
 * <a href="https://wordpress.org/plugins/wp-smushit/" target="_blank">WP Smush</a>
 
 ## Motivation
