@@ -14,10 +14,10 @@ Pages on the website and the templates used for them:
  * Films Submissions - Template: Default (page.php)
 
 ## Plugins
-* [Advanced Custom Fields] (https://www.google.ca/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiso8qcpuvVAhWELFAKHUxmDioQFggoMAA&url=https%3A%2F%2Fwww.advancedcustomfields.com%2F&usg=AFQjCNEaPLI0kA49z3gAlxsLlEGrDi4MKQ)
-* [Advanced Custom Fields: Date and Time Picker] (https://www.advancedcustomfields.com/resources/date-time-picker/)
-* [Duplicate Post ] (https://en-ca.wordpress.org/plugins/duplicate-post/)(to make it easier for editors to create new film posts)
-* [WP Smush] (https://wordpress.org/plugins/wp-smushit/)
+* <a href="https://www.google.ca/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiso8qcpuvVAhWELFAKHUxmDioQFggoMAA&url=https%3A%2F%2Fwww.advancedcustomfields.com%2F&usg=AFQjCNEaPLI0kA49z3gAlxsLlEGrDi4MKQ" target="_blank">Advanced Custom Fields</a>
+* <a href="https://www.advancedcustomfields.com/resources/date-time-picker/" target="_blank">Advanced Custom Fields: Date and Time Picker</a>
+* <a href="https://en-ca.wordpress.org/plugins/duplicate-post/" target="_blank">Duplicate Post</a> to make it easier for editors to create new film posts.
+* <a href="https://wordpress.org/plugins/wp-smushit/" target="_blank">WP Smush</a>
 
 ## Motivation
 
@@ -27,10 +27,6 @@ At this time, the festival is going into its 12th year. Along with the film team
 
 Each year one individual would typically create .html files for each film and upload them to the website. Such a system presents problems as changes can only be made by one individual. As a way to improve maintainence and sustainability, I decided to create a Wordpress Theme that provides any AITO Film Team Member the powers to create, remove, and update any film pages without any required web development knowledge. 
 
-
-## Tests
-
-Describe and show how to run the tests with code examples.
 
 ## Contributors
 
