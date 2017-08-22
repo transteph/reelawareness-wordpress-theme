@@ -16,11 +16,10 @@
 
     <h1 class="entry-title"><?php the_title(); ?>: Upcomming Screenings</h1> <!-- Page Title -->
     <?php
-    // TO SHOW THE PAGE CONTENTS
-    while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
-        <div class="entry-content-page">
-            <?php the_content(); ?> <!-- Page Content -->
-        </div><!-- .entry-content-page -->
+    while ( have_posts() ) : the_post(); ?> 
+        <div class="entry-content-page center">
+            <?php the_content(); ?> 
+        </div>
 
     <?php
     endwhile; //resetting the page loop
@@ -117,6 +116,20 @@
              </li>
              <?php endforeach; ?>
           </ul>
+		  
         </div>    
+
+		  <!-- if there are no future screenings -->
+		  <?php if( empty($custom_posts) ): ?>
+<div class="entry-content-page center">
+		  <h3 id="no-future-films">There are no planned series screenings at the moment. Check back soon!</h3>
+	<br/>
+	<a href="http://aito.ca/reelawareness/year-long-series/past-series-films/">
+			  <button class="button">
+				Past Series Films
+			  </button>
+		  </a>
+</div>
+		  <?php endif?>
 
    <?php get_footer(); ?>

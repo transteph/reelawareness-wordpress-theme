@@ -18,23 +18,18 @@
 
     <h1 class="entry-title"><?php the_title(); ?></h1> <!-- Page Title -->
     <?php
-    // TO SHOW THE PAGE CONTENTS
-    while ( have_posts() ) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
-        <div class="entry-content-page">
-            <?php the_content(); ?> <!-- Page Content -->
-        </div><!-- .entry-content-page -->
+    while ( have_posts() ) : the_post(); ?> 
+        <div class="entry-content-page center">
+            <?php the_content(); ?>
+        </div>
 
     <?php
-    endwhile; //resetting the page loop
-    wp_reset_query(); //resetting the page query
+    endwhile; 
+    wp_reset_query(); 
     ?>
     </div>  
     
-    
-    
-    
-    <!-- cycle posts for current festival films
-      <div class="post pageContent" id="post-<?php the_ID(); ?>">
+      <div class="entry-content-page center" id="post-<?php the_ID(); ?>">
           
          <ul class="posts page-post">
          <?php 
@@ -54,8 +49,24 @@
              </li>
              <?php endforeach; ?>
           </ul>
+		  
+		   <!-- if there are no future screenings -->
+		  <?php if( empty($custom_posts) ): ?>
+			  <h3 id="no-future-films">Stay tuned for details on this year's Reel Awareness Film Festival.</h3>
+		  	<br/><br/>
+		  <a href="http://aito.ca/reelawareness/festival/festival-information/">
+			  <button class="button">
+				Festival Information
+			  </button>
+		  </a>
+		  <a href="http://aito.ca/reelawareness/festival/past-festival-films/">
+			  <button class="button">
+				Past Festival Films
+			  </button>
+		  </a>
+		  <?php endif?>
+		  
         </div> 
-    -->
     
 </div>
    <?php get_footer(); ?>
