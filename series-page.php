@@ -64,18 +64,8 @@
                          <p class="short-details"><?php the_field('short_details'); ?></p>
 
             <ul class="screening"><li>
-           <?php the_field('date_time'); ?><br/>
-                <a class="address-link" target="_blank" href="https://www.google.com/maps?q=<?php $location = get_field('location'); echo $location['lat'] . ',' . $location['lng']; ?>">
-                <span class="address">
-                <?php 
-                $location = get_field('location');
-                $address = explode( "," , $location['address']);
-                echo '<b>'.$address[0].'</b><br/>'; //place name
-                echo $address[1].'<br/>'; 
-                echo $address[2].'<br/>'; 
-                echo $address[3].'<br/>'; 
-                ?>
-                    </span></a>
+			<?php the_field('date_time'); ?><br/>
+            <?php the_field('location'); ?>
                 <br/>
          <!-- purchase link if submitted -->
           <?php 

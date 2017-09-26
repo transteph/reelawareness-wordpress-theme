@@ -1,4 +1,4 @@
-<?php /* Template Name: Festival page */ get_header(); ?>
+<?php /* Template Name: Series page */ get_header(); ?>
 <?php get_sidebar(); ?>
 
 <!-- Header image div -->
@@ -12,61 +12,107 @@
 
      <?php endif; ?>
 <!-- start of post content -->
-
-<div id="container">
     <div id="content" class="pageContent">
 
     <h1 class="entry-title"><?php the_title(); ?></h1> <!-- Page Title -->
     <?php
     while ( have_posts() ) : the_post(); ?> 
         <div class="entry-content-page center">
-            <?php the_content(); ?>
+            <?php the_content(); ?> 
         </div>
 
     <?php
-    endwhile; 
-    wp_reset_query(); 
-    ?>
-    </div>  
-    
-      <div class="entry-content-page center" id="post-<?php the_ID(); ?>">
+    endwhile; //resetting the page loop
+    wp_reset_query(); //resetting the page query
+    ?>   
+    </div>
+      <div class="post" id="post-<?php the_ID(); ?>">
           
          <ul class="posts page-post">
          <?php 
             global $post; // required
-             $args = array(
-                 'category' => 3
-             ); 
+             $args = array('category' => 3); 
             $custom_posts = get_posts($args);
             foreach($custom_posts as $post) : setup_postdata($post);
              ?>
              
-            <li <?php post_class(); ?>>
-                <a class="movieName" href='<?php the_permalink() ?>'>
+             <li <?php post_class(); ?>>
+                 
+         <a class="movieName <?php echo 'film-video-title "';  ?>        
+            href="<?php the_permalink() ?>">
                  <?php the_title(); ?>
-                </a>
+                </a>        
+   <!-- Film image. Hide if there is video url -->
+                 
+    <?php 
+       if( get_field('video') ){
+          $embed_code = wp_oembed_get( get_field('video') );
+          echo $embed_code;
+        } 
+       else if( get_field('image')): 
+                $image = get_field('image');
+                ?>
+                 <div class="huge-img" style="background-image: url('<?php echo $image['url']; ?>');">  
+                
+            </div>
+    
+     <?php endif; ?>      
+                 
+                <br/>
+                 
+    <div class="entry-left-col">
+                         <p class="short-details"><?php the_field('short_details'); ?></p>
+
+            <ul class="screening">
+            <li>
+			<?php the_field('date_time'); ?><br/>
+            <?php the_field('location'); ?>
+                <br/>
+         <!-- purchase link if submitted -->
+          <?php 
+             if( get_field('purchase_link') ){
+              echo '<a class="purchase" href="';
+              echo the_field('purchase_link');
+                echo '" target="_blank"> <i class="fa fa-ticket"></i>  Purchase Tickets
+                   </a>';
+             };
+            ?> 
+                </li>
+    <!-- if there is second screening, show details -->
+     <?php 
+       if( get_field('date_time2') ){
+           echo '<li>';
+             the_field('date_time2'); 
+           echo '<br/>' . the_field('location2') . '<br/>' ;
+        if( get_field('purchase_link') ){
+                  echo '<br/><a class="purchase" href="';
+                  echo the_field('purchase_link');
+                    echo '" target="_blank"> <i class="fa fa-ticket"></i>  Purchase Tickets</a></li>';
+        } ;
+       };
+    ?>      
+    </ul>
+                 </div>
+                 <div class="entry-right-col">
   	         <?php the_content(); ?>
+                </div>
              </li>
              <?php endforeach; ?>
           </ul>
 		  
-		   <!-- if there are no future screenings -->
+        </div>    
+
+		  <!-- if there are no future screenings -->
 		  <?php if( empty($custom_posts) ): ?>
-			  <h3 id="no-future-films">Stay tuned for details on this year's Reel Awareness Film Festival.</h3>
-		  	<br/><br/>
-		  <a href="http://aito.ca/reelawareness/festival/festival-information/">
+<div class="entry-content-page center">
+		  <h3 id="no-future-films">There are no planned series screenings at the moment. Check back soon!</h3>
+	<br/>
+	<a href="http://aito.ca/reelawareness/year-long-series/past-series-films/">
 			  <button class="button">
-				Festival Information
+				Past Series Films
 			  </button>
 		  </a>
-		  <a href="http://aito.ca/reelawareness/festival/past-festival-films/">
-			  <button class="button">
-				Past Festival Films
-			  </button>
-		  </a>
-		  <?php endif?>
-		  
-        </div> 
-    
 </div>
+		  <?php endif?>
+
    <?php get_footer(); ?>
