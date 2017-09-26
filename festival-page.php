@@ -28,13 +28,20 @@
     </div>
       <div class="post" id="post-<?php the_ID(); ?>">
           
-         <ul class="posts page-post">
+         <ul class="posts page-post" id="festival-contain">
          <?php 
             global $post; // required
              $args = array('category' => 3); 
             $custom_posts = get_posts($args);
+            if($custom_posts){
+                // divider
+                echo '<div class="huge-img" id="divider" style="background-image: url(http://aito.ca/reelawareness/wp-content/uploads/22731688779_3e57a47206_b.jpg);">' .
+                "<h2>2017 Festival Films</h2>
+                </div>";
+            };
             foreach($custom_posts as $post) : setup_postdata($post);
-             ?>
+             ?>  
+             <!-- loop through each festival post -->
              
              <li <?php post_class(); ?>>
                  
@@ -42,14 +49,10 @@
             href="<?php the_permalink() ?>">
                  <?php the_title(); ?>
                 </a>        
+
    <!-- Film image. Hide if there is video url -->
-                 
     <?php 
-       if( get_field('video') ){
-          $embed_code = wp_oembed_get( get_field('video') );
-          echo $embed_code;
-        } 
-       else if( get_field('image')): 
+       if( get_field('image') && !get_field('video')): 
                 $image = get_field('image');
                 ?>
                  <div class="huge-img" style="background-image: url('<?php echo $image['url']; ?>');">  
@@ -94,7 +97,12 @@
     </ul>
                  </div>
                  <div class="entry-right-col">
-  	         <?php the_content(); ?>
+                <?php if( get_field('video') ){
+                        $embed_code = wp_oembed_get( get_field('video') );
+                        echo $embed_code;
+                     } 
+                    the_content(); 
+                ?>
                 </div>
              </li>
              <?php endforeach; ?>
@@ -104,15 +112,18 @@
 
 		  <!-- if there are no future screenings -->
 		  <?php if( empty($custom_posts) ): ?>
-<div class="entry-content-page center">
-		  <h3 id="no-future-films">There are no planned series screenings at the moment. Check back soon!</h3>
-	<br/>
-	<a href="http://aito.ca/reelawareness/year-long-series/past-series-films/">
-			  <button class="button">
-				Past Series Films
-			  </button>
-		  </a>
-</div>
+          <h3 id="no-future-films">Stay tuned for details on this year's Reel Awareness Film Festival.</h3>
+          <br/><br/>
+      <a href="http://aito.ca/reelawareness/festival/festival-information/">
+          <button class="button">
+            Festival Information
+          </button>
+      </a>
+      <a href="http://aito.ca/reelawareness/festival/past-festival-films/">
+          <button class="button">
+            Past Festival Films
+          </button>
+      </a>
 		  <?php endif?>
 
    <?php get_footer(); ?>
