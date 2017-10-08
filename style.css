@@ -998,6 +998,13 @@ table {
         background-size: cover;
         margin-top: 60px;
     }
+    @media screen and (max-width: 800px) {
+        .huge-film-img {
+        float: none;
+        width: 100%;
+        padding: 0px;
+        }
+    }
     .half-page{
         float: left;
         margin-top: 30px;
