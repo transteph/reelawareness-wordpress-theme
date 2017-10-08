@@ -18,6 +18,7 @@ Pages on the website and the templates used for them:
 * <a href="https://www.advancedcustomfields.com/resources/date-time-picker/" target="_blank">Advanced Custom Fields: Date and Time Picker</a>
 * <a href="https://en-ca.wordpress.org/plugins/duplicate-post/" target="_blank">Duplicate Post</a>(to make it easier for editors to create new film posts)
 * <a href="https://wordpress.org/plugins/wp-smushit/" target="_blank">WP Smush</a>
+* <a href="https://en-ca.wordpress.org/plugins/ajax-load-more/" target="_blank">AJAX Load More</a>
 
 ## Motivation
 
