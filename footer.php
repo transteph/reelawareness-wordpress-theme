@@ -13,8 +13,9 @@
     &copy;<?php echo date("Y"); ?> Amnesty International Toronto Organization</a> 
 
 </div>
-<!-- Don't forget analytics -->
 </div>
+<?php wp_footer(); ?> 
+
 </body>
 
 </html>

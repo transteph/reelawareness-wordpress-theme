@@ -6,9 +6,6 @@
         
        <a class="icon-hamburger" id="show-button" href="#nav"><span class="fa fa-bars" aria-hidden="true">&nbsp;</span></a>
             <a class="icon-close" id="hide-button" href="#"><span class="fa fa-close" aria-hidden="true">&nbsp;</span></a>
-         <a id="logo" href="http://aito.ca/reelawareness">
-			<img class="logo" src="http://aito.ca/reelawareness/wp-content/uploads/amnesty-logo.png" alt="Amnesty International Logo"/>
-		</a>
     <?php wp_nav_menu(array('menu' =>'Main Navigation')); 
         
         
