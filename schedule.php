@@ -9,11 +9,20 @@
                 <!-- start of post content -->
                 <div class="post">
                     <h1 class="entry-title"><?php the_title(); ?></h1>
-                
-                </div>
+    <?php
+    while ( have_posts() ) : the_post(); ?> 
+        <div id="fest-sched-content">
+            <?php the_content(); ?> 
+        </div>
+
+    <?php
+    endwhile; //resetting the page loop
+    wp_reset_query(); //resetting the page query
+    ?>   
+    </div>
     <div class="schedule-page">
                 <ul>
-                    <?php 
+         <?php 
             global $post; 
              $posts = get_posts(array(
                 'category' => 3,

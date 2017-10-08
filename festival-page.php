@@ -20,14 +20,17 @@
     wp_reset_query(); //resetting the page query
     ?>
                 </div>
-                <div class="post" id="post-<?php the_ID(); ?>">
-                    <ul class="posts page-post" id="festival-contain">
+               
+ <div class="post" id="post-<?php the_ID(); ?>">
                         <?php 
             global $post; 
              $posts = get_posts(array(
                 'category' => 3,
-                'orderby'			=> 'date_time',
-                'order'				=> 'ASC'
+                'posts_per_page'	=> -1,
+                'order'				=> 'ASC',
+                'orderby'			=> 'meta_value',
+                'meta_key'			=> 'date_time',
+                'meta_type'			=> 'numeric'
             ));
             if($posts){
                 // divider
@@ -35,31 +38,38 @@
                 "<h2>2017 Festival Films</h2>
                 </div>";
             };
+     echo '
+     <div class="festival-contain">';
             foreach($posts as $post) : setup_postdata($post);
              ?>
-                            <!-- loop through each festival post -->
-                            <li <?php post_class(); ?>> <a class="movieName <?php echo 'film-video-title " ';  ?>        
-            href="<?php the_permalink() ?>">
-                 <?php the_title(); ?>
-                </a>        
-
+   <div class="film-posting">          
    <!-- Film image. Hide if there is video url -->
     <?php 
        if( get_field('image') && !get_field('video')): 
                 $image = get_field('image');
                 ?>
-                 <div class="film-photo"> 
-                     <img src="<?php echo $image[ 'url']; ?>" alt="Photo from film <?php echo 'film-video-title " ';  ?>"/>
-                </div>
+            <div class="huge-film-img" style="background-image: url('<?php echo $image['url']; ?>');">  
+            </div>
+        <div class="half-page">
                 <?php endif; ?>
-                    <br/>
-                    <div class="entry-left-col">
-                        <p class="short-details">
-                            <?php the_field('short_details'); ?>
-                        </p>
-                        <ul class="screening">
-                            <li>
-                                <?php the_field('date_time'); ?>
+             <?php if( get_field('video') ){
+                        $embed_code = wp_oembed_get( get_field('video') );
+                        echo $embed_code;
+                        echo '<div class="full-page">';
+                     };
+         ?>
+                             <a class="movieName <?php echo 'film-video-title " ';  ?>        
+                href="<?php the_permalink() ?>">
+                     <?php the_title(); ?>
+                 </a>
+                 <p class="short-details">
+                   <?php the_field('short_details'); ?>
+                  </p>
+                                <span class="screen-date">
+                                  <?php $date = get_field('date_time');
+                                 $date2 = date("F j, Y", strtotime($date)); ?>
+                                <?php echo $date2; ?>
+                                    </span>
                                     <br/>
                                     <?php the_field('location'); ?>
                                         <br/>
@@ -71,36 +81,28 @@
                 echo '" target="_blank"> <i class="fa fa-ticket"></i>  Purchase Tickets
                    </a>';
              };
-            ?> </li>
-                            <!-- if there is second screening, show details -->
+            ?>
+                            <!-- if there is second half-page, show details -->
                             <?php 
        if( get_field('date_time2') ){
-           echo '<li>';
              the_field('date_time2'); 
            echo '<br/>' . the_field('location2') . '<br/>' ;
         if( get_field('purchase_link') ){
                   echo '<br/><a class="purchase" href="';
                   echo the_field('purchase_link');
-                    echo '" target="_blank"> <i class="fa fa-ticket"></i>  Purchase Tickets</a></li>';
+                    echo '" target="_blank"> <i class="fa fa-ticket"></i>  Purchase Tickets</a>';
         } ;
        };
     ?>
-                        </ul>
-                    </div>
-                    <div class="entry-right-col">
-                        <?php if( get_field('video') ){
-                        $embed_code = wp_oembed_get( get_field('video') );
-                        echo $embed_code;
-                     } 
+                        <?php 
                     the_content(); 
                 ?>
                     </div>
-                    </li>
-                    <?php endforeach; ?>
-                        </ul>
-                        </div>
-                        <!-- if there are no future screenings -->
-                        <?php if( empty($posts) ): ?>
+     </div> <br/>
+   <?php endforeach; ?>
+     
+                        <!-- if there are no future half-pages -->
+     <?php if( empty($posts) ): ?>
                             <h3 id="no-future-films">Stay tuned for details on this year's Reel Awareness Film Festival.</h3>
                             <br/>
                             <br/>
@@ -110,5 +112,7 @@
                             <a href="http://aito.ca/reelawareness/festival/past-festival-films/">
                                 <button class="button"> Past Festival Films </button>
                             </a>
-                            <?php endif?>
+   <?php endif?>
+</div>
+</div>
                                 <?php get_footer(); ?>

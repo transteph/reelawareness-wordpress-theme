@@ -56,7 +56,7 @@
                         $image = get_field('image');
                         if( !empty($image) ):?>
                             
-                            <div class="huge-img" style="background-image: url('<?php echo $image['url']; ?>');">  
+                            <div class="huge-film-img" style="background-image: url('<?php echo $image['url']; ?>');">  
                 
             </div>
                             </a>

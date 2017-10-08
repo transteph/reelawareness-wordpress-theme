@@ -6,7 +6,7 @@ Author URI: http://stephanietran.ca
 Version: 2
 */
 
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Rock+Salt|Raleway:400,500,600|Montserrat:400,700');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Rock+Salt|Raleway:400,500,600|Montserrat:400,700|Roboto');
 html,
 body,
 div,
@@ -138,7 +138,7 @@ table {
 
 @media screen {
     body {
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 16px;
         color: black;
         line-height: 1.4;
@@ -263,7 +263,7 @@ table {
         font-weight: 600;
     }
     a {
-        color: #E6AF2E;
+        color: #6d6d6d;
         text-decoration: none;
         display: inline-block;
         vertical-align: middle;
@@ -355,7 +355,7 @@ table {
         text-decoration: none;
     }
     .current_page_item a {
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 600!important;
     }
     .sub-menu {
@@ -669,7 +669,7 @@ table {
     }
     /*            ---- PAGES ----        */
     .page {
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-size: 17px;
         color: black;
         line-height: 1.5;
@@ -737,6 +737,7 @@ table {
     }
     .entry-content-page p {
         padding-top: 20px;
+        font-size: 20px;
     }
     /*      Past Festival Films Page    */
     .past-fest-post {
@@ -746,12 +747,13 @@ table {
         width: 33%;
         margin: 0;
         padding: 0;
-        height: 300px;
         display:inline-block;
+        vertical-align: top;
         list-style: none;
     }
     .past-fest-post p {
         width: 100%;
+        display:none;
     }
     .past-fest-post img,
     .past-series-post img {
@@ -796,7 +798,23 @@ table {
     .category-2017-series {
         min-height: 50vh;
     }
-    
+     button.alm-load-more-btn.loading:before {
+    background: #fff url("http://aito.ca/reelawareness/wp-content/uploads/loader-fading-circles.gif") no-repeat center center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin: 6px;
+    border-radius: 2px;
+    display: inline-block;
+    z-index: 0;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out; 
+    }
     .alm-load-more-btn.done{
    display: none;
 }
@@ -825,7 +843,7 @@ table {
         width: 100% !important;
         height: auto;
         max-width: none;
-    }
+    }   
     }
     
     
@@ -860,9 +878,13 @@ table {
         width: 100%;
         font-size: 230%;
     }
-    #festival-contain li {
+    .festival-contain{
         width: 90%;
         margin: 0 auto;
+        padding-top:20px;
+    }
+    .screen-date{
+        font-size:175%;
     }
     #divider {
         display: table;
@@ -887,9 +909,16 @@ table {
         line-height: 1;
         text-align: left;
     }
-    p.short-details {
-        text-transform: none;
-    }
+    .post .film-video-title {
+    font-size: 290%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+        padding: 10px 20px;
+    display: inline-block;
+            line-height: 1;
+}
+    
     .page-template-series-page .post .film-video-title:first-child {
         padding-top: 0px;
     }
@@ -906,7 +935,7 @@ table {
     .page-template-series-page .posts li {
         padding: 0px;
     }
-    .page-template-series-page .screening li {
+    .page-template-series-page .half-page li {
         padding: 10px;
         text-align: left;
     }
@@ -948,6 +977,8 @@ table {
         background-color: black;
         color: white !important;
         padding: 2px 3px;
+        transform: translateY(30px);
+    display: inline-block;
     }
     /*   Pages with large image headers   */
     .huge-img {
@@ -957,6 +988,29 @@ table {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+    .huge-film-img{
+        width: 40%;
+        height: 400px;
+        float:left;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 60px;
+    }
+    .half-page{
+        float: left;
+        margin-top: 30px;
+        width: 45%;
+        padding-left: 30px;
+    }
+    .full-page {
+    float: none;
+    width: 100%;
+    padding: 0px;
+    }
+    .film-posting{
+        margin-top: 30px;
     }
     .half-huge-img {
         width: 50%;
@@ -1027,6 +1081,7 @@ table {
     .post p {
         clear: both;
         padding-bottom: 15px;
+        font-family: 'Roboto';
     }
     .post .single-film-title {
         display: block;
@@ -1039,19 +1094,8 @@ table {
     }
     .post .film-video-title {
         font-size: 290%;
-        padding-top: 20px;
-        padding-bottom: 30px;
     }
-    .entry-left-col {
-        width: 30%;
-        float: left;
-        margin-right: 30px;
-        padding-bottom: 80px;
-        text-transform: uppercase;
-    }
-    .entry-left-col img {
-        width: 100%;
-    }
+   
     .single .entry-left-col ul {
         font-size: 18px;
         border-top: 1px solid grey;
@@ -1108,6 +1152,11 @@ table {
     }
     .schedule-page>ul>li:last-child{
         border:none;
+    }
+    #fest-sched-content{
+         width:80%;
+        padding-left:20px;
+        margin:0 auto;
     }
     /*   ANIMATIONS   */
     @-webkit-keyframes fadeInUpBig {
@@ -1243,6 +1292,11 @@ table {
 /*     Mobile      */
 
 @media screen and (max-width: 800px) {
+    .half-page {
+    float: none;
+    width: 100%;
+    padding: 0px;
+}
     body,
     .page {
         font-size: 14px;
@@ -1251,10 +1305,14 @@ table {
         overflow-x: hidden;
         margin-top: 5px;
     }
+    p
     .post a,
     .page a {
         font-size: 120%;
     }
+    .post p, .posts li {
+    font-size: 18px;
+}
     #container {
         max-width: 100%;
         padding: 30px;
@@ -1418,6 +1476,9 @@ table {
     #nav img {
         display: none;
     }
+    .movieName .movie-title {
+    font-size: 150%;
+}
     /*    ---- Mobile Home Page ----        */
     #footer a {
         margin-left: 30px;
@@ -1657,11 +1718,11 @@ table {
     /* Mobile Main Festival Page  */
     .page-template-festival-page h2 {
         width: 100%;
-        font-size: 150%;
+        font-size: 180%;
     }
     .page-template-festival-page h3 {
         font-family: 'Playfair Display';
-        font-size: 120%;
+        font-size: 160%;
     }
     /* Mobile Festival Information Page */
     #photosRight {
@@ -1706,14 +1767,10 @@ table {
         padding: 0;
         font-size: 130%;
         padding-bottom: 10px;
-        font-family: 'Playfair Display';
-    }
-    .entry-title {
-        font-family: 'Playfair Display';
     }
     .short-details {
-        font-family: 'Raleway';
-        font-size: 13px;
+        font-family: 'Roboto';
+        font-size: 17px;
         padding: 0px 5px;
     }
     .page-template-past-festival .short-details {
@@ -1739,9 +1796,11 @@ table {
         padding: 0;
         height: auto;
         display: block;
+        font-size: 17px;
     }
     .past-fest-post p {
         width: 100%;
+        font-size: 17px;
     }
     
     /* Mobile Series Pages */
@@ -1764,6 +1823,7 @@ table {
     .entry-left-col ul li {
         padding-bottom: 10px;
         text-align: center;
+        font-size: 17px;
     }
     .single .entry-left-col ul {
         width: 100%;
@@ -1776,9 +1836,12 @@ table {
         padding-bottom: 0px;
     }
     .post .film-video-title {
+        clear:both;
         font-size: 290%;
-        padding: 10px 0px 10px 5px;
         line-height: 1;
+        text-align: left;
+    float: left;
+    margin: 10px 0px;
     }
     /* Mobile Animations */
     .fadeInUpBig {
