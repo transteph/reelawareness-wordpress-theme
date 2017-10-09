@@ -686,7 +686,7 @@ table {
         font-size: 150%;
     }
     .page a {
-        color: #eda90a;
+        color: #0e2f57;
         font-weight: 500;
         display: inline-block;
         vertical-align: middle;
@@ -1110,9 +1110,6 @@ table {
         padding: 20px 10px 0px 10px;
         border-bottom: 1px solid grey;
     }
-    .entry-left-col ul li {
-        padding-bottom: 25px;
-    }
     .address {
         font-size: 80%;
         text-transform: capitalize;
@@ -1122,6 +1119,11 @@ table {
         float: left;
         padding-top: 11px;
     }
+    /* Film titles for posts with videos */
+    .single-post .post .film-video-title{
+        display:block;
+    }
+    
     /*   Past films post */
     .single-post .short-details {
         padding-bottom: 8px;
@@ -1137,11 +1139,31 @@ table {
     }
     
     /*  Schedule Page  */
+    .page-template-schedule .post .film-video-title{
+        float:none;
+        clear:both;
+        padding:5px 5px 10px 0px;
+        font-size: 200%;
+        margin:0px;
+        background-color:white;
+        color:#383838;
+    }
+    .schedule-page table{
+        border:2px solid black;
+    }
+    .schedule-page table td{
+        display: table-cell;
+        vertical-align: middle;
+        border-right: 1px solid grey;
+    }
+    .schedule-page table tr:nth-child(odd){
+        background-color:#b7b7b7;
+    }
     .schedule-page{
-        width:80%;
+        width:70%;
+        max-width: 700px;
         padding:20px;
         margin:0 auto;
-        border:2px solid black;
     }
     .schedule-page h2 {
         padding:0px;
@@ -1156,9 +1178,6 @@ table {
         border-bottom:1px solid grey;
         width:99%;
         margin:0 auto;
-    }
-    .schedule-page>ul>li:last-child{
-        border:none;
     }
     #fest-sched-content{
          width:80%;

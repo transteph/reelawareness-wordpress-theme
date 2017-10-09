@@ -98,7 +98,7 @@
             </div>
 
 
-            <div class="entry-right-col">
+            <div>
                 <?php the_content(); ?>
             </div>
 
