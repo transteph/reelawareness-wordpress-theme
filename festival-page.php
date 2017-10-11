@@ -54,7 +54,7 @@
                 <?php endif; ?>
              <?php if( get_field('video') ){
                         $embed_code = wp_oembed_get( get_field('video') );
-                        echo $embed_code;
+                        echo '<div class="video-container">' . $embed_code . '</div>';
                         echo '<div class="full-page">';
                      };
          ?>
@@ -64,11 +64,18 @@
                  </a>
                  <p class="short-details">
                    <?php the_field('short_details'); ?>
-                  </p>
+                   </p>
+                   <div class="date-location">
                                 <span class="screen-date">
                                   <?php $date = get_field('date_time');
-                                 $date2 = date("F j, Y", strtotime($date)); ?>
-                                <?php echo $date2; ?>
+                                 $date2 = date("F j, Y", strtotime($date)); 
+                                 // getting time in date_time 
+                                $date3 = date("g:ia", strtotime($date));
+                                
+                                if ($date2 !== 'January 1, 1970'){
+                                    echo $date2 . " - " . $date3  ; 
+                                }
+                                 ?>
                                     </span>
                                     <br/>
                                     <?php the_field('location'); ?>
@@ -82,6 +89,8 @@
                    </a>';
              };
             ?>
+            </div>
+            
                             <!-- if there is second half-page, show details -->
                             <?php 
        if( get_field('date_time2') ){
@@ -94,9 +103,11 @@
         } ;
        };
     ?>
-                        <?php 
+    <div class="film-desc">
+                        <?php
                     the_content(); 
                 ?>
+                </div>
                     </div>
      </div> <br/>
    <?php endforeach; ?>

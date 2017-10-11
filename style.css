@@ -898,6 +898,15 @@ table {
         float: left;
     }
     /*          Festival page       */
+    .film-desc{
+        margin-bottom:20px;
+    }
+    .date-location{
+        font-style: italic;
+        padding-bottom: 10px;
+        padding-left: 40px;
+        color: grey;
+    }
     .page-template-festival-page h2 {
         width: 100%;
         font-size: 230%;
@@ -908,7 +917,7 @@ table {
         padding-top:20px;
     }
     .screen-date{
-        font-size:175%;
+        font-size:155%;
     }
     #divider {
         display: table;
@@ -1037,9 +1046,11 @@ table {
         padding-left: 30px;
     }
     .full-page {
-    float: none;
-    width: 100%;
-    padding: 0px;
+        clear:both;
+        float: none;
+        width: 100%;
+        padding: 0px;
+        margin: 0  auto;
     }
     .film-posting{
         margin-top: 30px;
@@ -1113,7 +1124,6 @@ table {
     }
     .post p {
         clear: both;
-        padding-bottom: 15px;
         font-family: 'Roboto';
     }
     .post .single-film-title {
